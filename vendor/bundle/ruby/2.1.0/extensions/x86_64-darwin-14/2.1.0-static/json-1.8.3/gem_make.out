@@ -1,0 +1,10 @@
+/Users/eddiequan/.rvm/rubies/ruby-2.1.5/bin/ruby -r ./siteconf20160304-15306-93raqs.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install
+installing default libraries
