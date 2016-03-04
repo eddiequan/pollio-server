@@ -16,10 +16,23 @@ class PollsController < ApplicationController
       @poll.save!
       render json: @poll
     else
-      render json: { errors: @poll.errors.full_messages }
+      render_errors
     end
-
   end
+
+  def update
+    @poll = Poll.find(params[:id])
+
+    @poll.assign_attributes(poll_params)
+
+    if @poll.valid?
+      @poll.save!
+      render json: @poll
+    else
+      render_errors
+    end
+  end
+
 
   private
 
@@ -27,5 +40,8 @@ class PollsController < ApplicationController
     params.require(:poll).permit(:title)
   end
 
+  def render_errors
+    render json: {errors: @poll.errors.full_messages}
+  end
 
 end
